@@ -1,0 +1,73 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index",
+			"style": {
+				"navigationBarTitleText": "TodoX"
+			}
+		},
+		{
+			"path": "pages/profile",
+			"style": {
+				"navigationBarTitleText": "TodoX"
+			}
+		},
+		{
+			"path": "pages/login",
+			"style": {
+				"navigationBarTitleText": "TodoX"
+			}
+		},
+		{
+			"path": "pages/update",
+			"style": {
+				"navigationBarTitleText": "修改资料"
+			}
+		},
+		{
+			"path": "pages/setting",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/feedback",
+			"style": {
+				"navigationBarTitleText": "反馈与建议"
+			}
+		},
+		{
+			"path": "pages/about",
+			"style": {
+				"navigationBarTitleText": "关于应用"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#40a0ea",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index",
+				"text": "待办列表",
+				"iconPath": "static/img/ico_list.png",
+				"selectedIconPath": "static/img/ico_list_active.png"
+			},
+			{
+				"pagePath": "pages/profile",
+				"text": "个人中心",
+				"iconPath": "static/img/ico_user.png",
+				"selectedIconPath": "static/img/ico_user_active.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "TodoX",
+		"navigationBarBackgroundColor": "#40a0ea",
+		"backgroundColor": "#FFFFFF",
+		"enablePullDownRefresh": false,
+		"disableScroll": true
+	}
+}
