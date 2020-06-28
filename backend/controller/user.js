@@ -26,7 +26,16 @@ const handleWxLoginSuccess = async (ctx, data) => {
   })
   ctx.send({
     token: jwtToken,
-    user: data
+    user: {
+      id: data['_id'],
+      userName: data.userName,
+      avatar: data.avatar,
+      topStar: data.topStar,
+      playSound: data.playSound,
+      registTime: data.registTime,
+      lastLoginTime: data.lastLoginTime,
+      updateTime: data.updateTime
+    }
   }, '登录成功');
 }
 
@@ -73,7 +82,14 @@ module.exports = {
         }, jwtSecretKey, jwtConfig);
         ctx.send({
           token: jwtToken,
-          user: result[0]
+          user: {
+            id: result[0]['_id'],
+            userName: result[0].userName,
+            avatar: result[0].avatar,
+            topStar: result[0].topStar,
+            playSound: result[0].playSound,
+            lastLoginTime: result[0].lastLoginTime
+          }
         }, '登录成功');
         // 更新最后登录时间
         User.findByIdAndUpdate(result[0]['_id'], {
@@ -99,7 +115,7 @@ module.exports = {
     let wxRes = await request('https://api.weixin.qq.com/sns/jscode2session' + Utils.urlEncode(param, 1));
     //如果成功即可得到微信返回参数
     let wxData = JSON.parse(wxRes.body)
-    console.log(wxData);
+    // console.log(wxData);
 
     // 1.检查是否已经存在该用户
     const result1 = await User.find({
@@ -146,7 +162,16 @@ module.exports = {
       console.log(err);
     })
     if (result.length) {
-      ctx.send(result[0], '获取用户信息成功');
+      ctx.send({
+        id: result[0]['_id'],
+        userName: result[0].userName,
+        avatar: result[0].avatar,
+        topStar: result[0].topStar,
+        playSound: result[0].playSound,
+        registTime: result[0].registTime,
+        lastLoginTime: result[0].lastLoginTime,
+        updateTime: result[0].updateTime
+      }, '获取用户信息成功');
     } else {
       ctx.sendError('获取用户信息失败');
     }
