@@ -93,7 +93,7 @@
 						};
 						// 完成登录或注册
 						this.$request({
-							path: '/api/wxLogin',
+							path: '/todo/wxLogin',
 							method: 'POST',
 							data: param,
 						}).then(res => {
@@ -142,7 +142,7 @@
 					this.loading = true
 					this.$loading.show('登录中…')
 					this.$request({
-						path: '/api/login',
+						path: '/todo/login',
 						method: 'POST',
 						data: this.param,
 					}).then(res => {
@@ -170,7 +170,7 @@
 					this.loading = true
 					this.$loading.show('注册中…')
 					this.$request({
-						path: '/api/regist',
+						path: '/todo/regist',
 						method: 'POST',
 						data: this.param,
 					}).then(res => {

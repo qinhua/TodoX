@@ -42,7 +42,7 @@
 		methods: {
 			getUserInfo() {
 				this.$request({
-					path: '/api/getUserInfo',
+					path: '/todo/getUserInfo',
 				}).then(res => {
 					this.userData = { ...this.userData,
 						...res.data
@@ -70,7 +70,7 @@
 				this.loading = true
 				this.$loading.show('处理中…')
 				this.$request({
-					path: '/api/logout',
+					path: '/todo/logout',
 					method: 'POST',
 				}).then(res => {
 					this.loading = false

@@ -40,7 +40,7 @@
 				this.loading = true
 				this.$loading.show('保存中…')
 				this.$request({
-					path: '/api/updateUser',
+					path: '/todo/updateUser',
 					method: 'POST',
 					data: this.param
 				}).then(res => {
