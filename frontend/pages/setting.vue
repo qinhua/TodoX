@@ -38,7 +38,7 @@
 				if (this.loading) return false;
 				this.loading = true
 				this.$request({
-					path: '/todo/setting',
+					path: '/api/todox/setting',
 					method: 'POST',
 					data: this.param,
 				}).then(res => {

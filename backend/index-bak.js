@@ -41,7 +41,7 @@ const urlEncode = (param, idx, key, encode) => {
   }
   return paramStr;
 };
-// const omitPath = ['/todo/login', '/todo/regist', '/todo/wxLogin']
+// const omitPath = ['/api/todox/login', '/api/todox/regist', '/api/todox/wxLogin']
 
 // 微信登录成功
 const handleWxLoginSuccess = async (ctx, data) => {
@@ -142,7 +142,7 @@ app.use(async (ctx, next) => {
       }
     });
   }
-  if (req.url === '/todo/add' && req.method === "POST") {
+  if (req.url === '/api/todox/add' && req.method === "POST") {
     const result = await List.create({
       content: req.body.content,
       status: 1,
@@ -163,7 +163,7 @@ app.use(async (ctx, next) => {
       };
     }
   }
-  if (req.url === '/todo/update' && req.method === "POST") {
+  if (req.url === '/api/todox/update' && req.method === "POST") {
     let param = {
       updateTime: Date.now()
     }
@@ -188,7 +188,7 @@ app.use(async (ctx, next) => {
       };
     }
   }
-  if (req.url === '/todo/delete' && req.method === "POST") {
+  if (req.url === '/api/todox/delete' && req.method === "POST") {
     const result = await List.deleteOne({
       _id: req.body.id
     }, err => {
@@ -206,7 +206,7 @@ app.use(async (ctx, next) => {
       };
     }
   }
-  if (req.url === '/todo/regist' && req.method === "POST") {
+  if (req.url === '/api/todox/regist' && req.method === "POST") {
     const result = await User.find({
       userName: req.body.userName
     }, err => {
@@ -238,7 +238,7 @@ app.use(async (ctx, next) => {
       }
     }
   }
-  if (req.url === '/todo/login' && req.method === "POST") {
+  if (req.url === '/api/todox/login' && req.method === "POST") {
     const result = await User.find({
       userName: req.body.userName
     }, err => {
@@ -277,7 +277,7 @@ app.use(async (ctx, next) => {
       };
     }
   }
-  if (req.url === '/todo/wxLogin' && req.method === "POST") {
+  if (req.url === '/api/todox/wxLogin' && req.method === "POST") {
     let param = {
       appid: 'wx0b96ac338b02bebc',
       secret: '5474a0009a59eccd1ae274af06481d4c',
@@ -342,7 +342,7 @@ app.use(async (ctx, next) => {
       };
     }
   }
-  if (req.url === '/todo/updateUser' && req.method === "POST") {
+  if (req.url === '/api/todox/updateUser' && req.method === "POST") {
     // 首先检查用户名是否被占用
     const hasUser = await User.find({
       userName: req.body.userName
@@ -376,7 +376,7 @@ app.use(async (ctx, next) => {
       }
     }
   }
-  if (req.url === '/todo/logout' && req.method === "POST") {
+  if (req.url === '/api/todox/logout' && req.method === "POST") {
     try {
       ctx.body = {
         code: 200,

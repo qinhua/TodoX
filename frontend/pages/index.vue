@@ -119,7 +119,7 @@
 				let param = {}
 				this.filter ? param.status = this.filter : null;
 				this.$request({
-					path: '/todo/list',
+					path: '/api/todox/list',
 					data: param,
 				}).then(res => {
 					this.list = res.data.list
@@ -137,7 +137,7 @@
 				const innerAudioContext = uni.createInnerAudioContext(); //创建播放器对象
 				innerAudioContext.obeyMuteSwitch = false;
 				// innerAudioContext.src = '../static/media/ding.wav';
-				innerAudioContext.src = 'https://www.bbchin.com/static/media/ding.wav';
+				innerAudioContext.src = 'https://www.bbchin.com/todox/static/media/ding.wav';
 				innerAudioContext.onCanplay(() => {
 					innerAudioContext.play(); //执行播放
 				});
@@ -155,7 +155,7 @@
 				this.loading = true
 				this.$loading.show('正在添加…')
 				this.$request({
-					path: '/todo/add',
+					path: '/api/todox/add',
 					method: 'POST',
 					data: {
 						content: this.todoContent
@@ -175,7 +175,7 @@
 				this.loading = true
 				this.$loading.show('正在删除…')
 				this.$request({
-					path: '/todo/delete',
+					path: '/api/todox/delete',
 					method: 'POST',
 					data: {
 						id
@@ -195,7 +195,7 @@
 				item.status === 1 && this.playAudio();
 				this.$set(this.list[index], 'status', item.status === 1 ? 2 : 1);
 				this.$request({
-					path: '/todo/update',
+					path: '/api/todox/update',
 					method: 'POST',
 					data: {
 						id: item.id,
@@ -208,7 +208,7 @@
 			// 修改内容
 			contentChange(item, index) {
 				this.$request({
-					path: '/todo/update',
+					path: '/api/todox/update',
 					method: 'POST',
 					data: {
 						id: item.id,
@@ -222,7 +222,7 @@
 			star(item, index) {
 				if (item.status === 2) return false
 				this.$request({
-					path: '/todo/update',
+					path: '/api/todox/update',
 					method: 'POST',
 					data: {
 						id: item.id,

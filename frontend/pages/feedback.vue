@@ -30,7 +30,7 @@
 				this.loading = true
 				this.$loading.show('提交中…')
 				this.$request({
-					path: '/todo/feedback',
+					path: '/api/todox/feedback',
 					method: 'POST',
 					data: this.param,
 				}).then(res => {

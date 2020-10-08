@@ -1,6 +1,6 @@
 const KoaRouter = require('koa-router')
 const router = new KoaRouter({
-  prefix: '/todo'
+  prefix: '/api/todox'
 });
 const UserController = require('../controller/user')
 const ListController = require('../controller/list')

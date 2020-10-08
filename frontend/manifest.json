@@ -111,11 +111,15 @@
     },
     "h5" : {
         "title" : "TodoX",
-        "domain" : "http://www.bbchin.com",
+        "domain" : "https://bbchin.com",
         "optimization" : {
             "treeShaking" : {
                 "enable" : true
             }
+        },
+        "router" : {
+            "mode" : "hash",
+            "base" : "./"
         }
     }
 }
