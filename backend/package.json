@@ -4,7 +4,8 @@
   "description": "todox backend",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --watch",
+    "dev": "pm2 start index.js --watch",
+    "start": "pm2 start index.js --name TodoX",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
